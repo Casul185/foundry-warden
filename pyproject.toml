@@ -1,0 +1,14 @@
+[project]
+name = "foundry-warden"
+version = "0.1.0"
+description = "Windows game-mode daemon: Steam game detection, tiered background-app throttling, honest per-session benchmarking. Pure stdlib."
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [{ name = "Gabriel Baker" }]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# E702: the codebase deliberately uses compact `a; b` state-machine lines.
+ignore = ["E702"]

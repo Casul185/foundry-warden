@@ -1,0 +1,9 @@
+# real config (config.example.json is the committed template)
+config.json
+
+# runtime output
+logs/
+benchmarks/
+
+__pycache__/
+*.pyc

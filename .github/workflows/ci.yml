@@ -1,0 +1,36 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint-and-compile:
+    strategy:
+      matrix:
+        # The daemon targets Windows; Linux is included to keep byte-compilation
+        # and lint honest on both line-ending/runner environments.
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Byte-compile every file
+        run: python -m compileall -q foundry_warden run_warden.py
+      - name: Ruff
+        run: |
+          pip install ruff
+          ruff check .
+  smoke-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: CLI help + sample payload + one detection poll
+        run: |
+          python run_warden.py --help
+          python run_warden.py version
+          python run_warden.py payload
+          python run_warden.py once

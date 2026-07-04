@@ -1,0 +1,53 @@
+{
+  "node_name": "my-gaming-pc",
+  "log_level": "INFO",
+  "poll_interval_sec": 2.0,
+  "heartbeat_interval_sec": 30.0,
+  "detection": {
+    "require_foreground_corroboration": true,
+    "corroboration_grace_sec": 20.0
+  },
+  "throttle": {
+    "soft_tier": [
+      "chrome.exe",
+      "msedge.exe",
+      "firefox.exe",
+      "brave.exe",
+      "slack.exe",
+      "teams.exe",
+      "spotify.exe",
+      "onedrive.exe",
+      "googledrivefs.exe",
+      "dropbox.exe",
+      "code.exe",
+      "searchindexer.exe"
+    ],
+    "hard_tier": [],
+    "apply_idle_priority": true,
+    "apply_ecoqos": true
+  },
+  "telemetry": {
+    "enabled": false,
+    "endpoint": "",
+    "token": ""
+  },
+  "benchmark": {
+    "enabled": true,
+    "sample_interval_sec": 1.0,
+    "baseline_window_sec": 3.0,
+    "engaged_settle_sec": 4.0,
+    "engaged_window_sec": 4.0,
+    "restored_settle_sec": 2.0,
+    "restored_window_sec": 3.0,
+    "top_n": 8
+  },
+  "user_allowlist": [
+    "discord.exe",
+    "discordptb.exe",
+    "discordcanary.exe",
+    "radeonsoftware.exe",
+    "amdrsserv.exe",
+    "presentmon-x64.exe",
+    "mpv.exe"
+  ]
+}
