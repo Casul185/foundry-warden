@@ -76,7 +76,7 @@ run_warden.py  ->  __main__.py (CLI)  ->  daemon.py (poll loop)
 ## Quick start
 
 ```
-git clone <this repo> && cd foundry-warden
+git clone https://github.com/casul185/foundry-warden.git && cd foundry-warden
 copy config.example.json config.json     # edit to taste
 python run_warden.py run --dry-run       # watch what it WOULD do (no changes)
 python run_warden.py run                 # foreground, Ctrl-C to stop
@@ -122,6 +122,10 @@ python run_warden.py start               # start detached now
 
 * Windows 10/11, Steam.
 * Python ≥ 3.7 (syntactic minimum, verified with `vermin`; developed and run on 3.11+). No packages — stdlib only.
+
+## Support
+
+If this project is useful to you, you can support it at [ko-fi.com/casul185](https://ko-fi.com/casul185).
 
 ## License
 
