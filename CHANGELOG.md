@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.4 — 2026-07-05
+
+Self-update (stdlib, public GitHub, no auth).
+
+* New `check-update` (read-only) and `update [--yes]` commands: compare the running version to the newest GitHub tag (semver-max across tags) and, only on explicit `--yes`, install in place — backing up first and **never overwriting `config.json` or `logs/`**, with automatic rollback on failure. Pure `urllib`, keeping the zero-dependency property.
+* README **Updating** section, honest about the no-code-signing limit.
+
 ## v0.1.3 — 2026-07-05
 
 Contribute-your-results (zero network).

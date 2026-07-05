@@ -179,6 +179,18 @@ That reads your latest session and prints a **pre-sanitized** block (throttle co
 
 That the program sends nothing, and sharing is entirely opt-in and reviewable, is by design.
 
+## Updating
+
+Pure stdlib, checks public GitHub — no auth, no dependencies:
+
+```
+python run_warden.py check-update      # read-only: is there a newer version?
+python run_warden.py update            # shows current -> latest, changes nothing
+python run_warden.py update --yes      # installs it: backs up first, PRESERVES your config.json
+```
+
+It never auto-updates silently — `check-update` is read-only and `update` only installs with `--yes`. The current install is backed up to `../foundry-warden.backup-<version>` and restored automatically if anything fails; your `config.json` and `logs/` are never touched. **Honest limit:** updates come from public GitHub over TLS with **no code signing yet** — you are trusting github.com + the repo owner; review the release diff if that matters to you.
+
 ## Support
 
 If this project is useful to you, you can support it at [ko-fi.com/casul185](https://ko-fi.com/casul185).

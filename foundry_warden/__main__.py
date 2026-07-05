@@ -14,6 +14,8 @@ Subcommands:
   version               print version
   export-showcase [--redact-game]
                         print a PRE-SANITIZED session summary to paste into Discussions (sends nothing)
+  check-update          report whether a newer version exists on GitHub (read-only)
+  update [--yes]        show current->latest; install only with --yes (backs up, keeps config)
 """
 
 from __future__ import annotations
@@ -235,12 +237,48 @@ def cmd_export_showcase(_args) -> int:
     return 0
 
 
+def cmd_check_update(_args) -> int:
+    """Read-only: is a newer version available on GitHub? Changes nothing."""
+    from . import updater
+    info = updater.check_update(__version__)
+    if info.get("latest") is None:
+        print(f"could not reach GitHub ({info.get('error', '?')}); you are on {__version__}.")
+        return 1
+    if info["update_available"]:
+        print(f"update available: {info['current']} -> {info['latest']}")
+        print("run `python run_warden.py update --yes` to install it (config.json is preserved).")
+    else:
+        print(f"up to date ({info['current']}).")
+    return 0
+
+
+def cmd_update(_args) -> int:
+    """Show current->latest; only install on explicit --yes. Preserves config.json."""
+    from . import updater
+    from .config import PROJECT_ROOT
+    info = updater.check_update(__version__)
+    if info.get("latest") is None:
+        print(f"could not reach GitHub; staying on {__version__}.")
+        return 1
+    if not info["update_available"]:
+        print(f"already up to date ({info['current']}).")
+        return 0
+    print(f"{info['current']} -> {info['latest']}")
+    if "--yes" not in (_args or []):
+        print("dry run — re-run with `update --yes` to install (backs up first, keeps config.json).")
+        return 0
+    changed, msg = updater.apply_update(__version__, PROJECT_ROOT)
+    print(msg)
+    return 0 if changed else 1
+
+
 COMMANDS = {
     "install": cmd_install, "uninstall": cmd_uninstall,
     "start": cmd_start, "stop": cmd_stop, "restart": cmd_restart,
     "status": cmd_status, "run": cmd_run, "_run": cmd__run,
     "once": cmd_once, "payload": cmd_payload, "version": cmd_version,
     "export-showcase": cmd_export_showcase,
+    "check-update": cmd_check_update, "update": cmd_update,
 }
 
 
