@@ -197,6 +197,12 @@ It never auto-updates silently — `check-update` is read-only and `update` only
 
 Part of a small Windows-gaming toolkit: [**frameseer**](https://github.com/casul185/frameseer) (settings advisor + frametime measurement) and [**amd-vram-detection**](https://github.com/casul185/amd-vram-detection) (true VRAM size).
 
+## Staying up to date
+
+To be notified of new releases, **Watch** this repo on GitHub → the **Custom** dropdown → check **Releases**. The full list lives at [github.com/casul185/foundry-warden/releases](https://github.com/casul185/foundry-warden/releases).
+
+Foundry-Warden also checks for updates itself: on startup, at most **once per 24h**, it makes a best-effort call to GitHub and, if a newer release exists, prints a single one-line notice to stderr. It never auto-updates and never nags. To disable this entirely, set `FOUNDRY_NO_UPDATE_CHECK=1` in your environment.
+
 ## Support
 
 If this project is useful to you, you can support it at [ko-fi.com/casul185](https://ko-fi.com/casul185).

@@ -1,6 +1,6 @@
 [project]
 name = "foundry-warden"
-version = "0.1.6"
+version = "0.1.7"
 description = "Windows game-mode daemon: Steam game detection, tiered background-app throttling, honest per-session benchmarking. Pure stdlib."
 requires-python = ">=3.7"
 license = { text = "MIT" }

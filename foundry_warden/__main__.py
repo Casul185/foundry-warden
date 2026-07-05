@@ -295,6 +295,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"unknown command: {cmd}")
         print("commands:", ", ".join(COMMANDS))
         return 2
+    # Passive, best-effort update notice for interactive runs (not for the
+    # output-only `version` or the detached background daemon `_run`).
+    if cmd not in ("version", "_run"):
+        from . import updater
+        updater.notify_if_update_available(__version__)
     return fn(argv[1:])
 
 

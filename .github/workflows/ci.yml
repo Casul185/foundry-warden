@@ -23,6 +23,8 @@ jobs:
           ruff check .
       - name: Sanitizer regression corpus
         run: python tests/test_showcase_export.py
+      - name: Update-check regression
+        run: python tests/test_update_check.py
   smoke-windows:
     runs-on: windows-latest
     steps:

@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.1.7 — 2026-07-05
+
+Passive update notice (opt-out, cached, zero new deps).
+
+* On interactive startup, Foundry-Warden now does a best-effort check for a newer GitHub release and prints **one** stderr line if the running version is behind (`>> A new version ... is available: vX.Y.Z (you have A.B.C) — <releases URL>`). It never auto-updates, never nags, and never delays or breaks the real command. Pure `urllib` (2 s timeout), fail-silent on offline/timeout/rate-limit/JSON changes.
+* Hits GitHub **at most once per 24h** via a small JSON cache under `%LOCALAPPDATA%`/`$XDG_CACHE_HOME`/`~/.cache`; a fresh cache is compared without any network call.
+* New opt-out: set `FOUNDRY_NO_UPDATE_CHECK=1` to disable the check entirely.
+* `tests/test_update_check.py`: stdlib regression for the semver compare, fail-silent behavior, and the opt-out (never touches the network).
+
 ## v0.1.6 — 2026-07-05
 
 Harden the sanitizer (durable no-leak guarantee).
