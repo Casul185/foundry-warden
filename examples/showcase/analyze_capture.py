@@ -38,12 +38,12 @@ def main() -> int:
     print(f"Node        : {d.get('node', '?')}")
     print("-" * 52)
     print(f"Processes throttled : {d.get('throttled_count', len(procs))}")
-    print(f"  by tier           : " + ", ".join(f"{k}={v}" for k, v in tiers.items()))
+    print("  by tier           : " + ", ".join(f"{k}={v}" for k, v in tiers.items()))
     print(f"CPU freed (attributed to throttling) : {d.get('cpu_freed_pct', 0.0):.2f}%")
     print(f"Working set freed                    : {d.get('ws_freed_mb', 0.0):.1f} MB")
     print("-" * 52)
     print("Context (NOT attributed to throttling — includes the game's own load):")
-    print(f"  system CPU baseline -> engaged : "
+    print("  system CPU baseline -> engaged : "
           f"{d.get('system_cpu_baseline_pct', 0.0):.1f}% -> {d.get('system_cpu_engaged_pct', 0.0):.1f}%")
 
     top = sorted(procs, key=lambda p: p.get("ws_freed_mb", 0.0), reverse=True)[:10]
