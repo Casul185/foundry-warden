@@ -1,0 +1,24 @@
+name: "📊 Share your throttle result"
+description: "Post a sanitized export-showcase block so others can see Warden across different machines."
+title: "[showcase] <your CPU/GPU class>"
+labels: ["showcase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Run `python run_warden.py export-showcase`, **review the output** (it's already
+        sanitized — no hostnames/IPs/paths/MACs — but eyeball it), and paste it below.
+        Foundry-Warden sends nothing; this is 100% voluntary. Add `--redact-game` to hide titles.
+  - type: textarea
+    id: block
+    attributes:
+      label: "Your export-showcase output"
+      description: "Paste the block from export-showcase (or showcase_export.md)."
+      render: markdown
+    validations:
+      required: true
+  - type: input
+    id: gpu
+    attributes:
+      label: "GPU (optional)"
+      placeholder: "e.g. RX 6600, GTX 1650"

@@ -7,6 +7,7 @@ Three small, portable scripts to see Warden work and to render its output.
 | `generate_load.py` | Spawns synthetic busy + memory-holding background processes (stands in for updaters/sync/indexers) | any OS |
 | `run_showcase.py` | Starts the load, waits while you launch a game, finds the daemon's capture, analyzes it | any OS |
 | `analyze_capture.py` | Renders a Warden benchmark JSON as a plain A/B table | any OS |
+| `aggregate_community.py` | Pulls **public** showcase submissions (GitHub issues labeled `showcase`, no auth) into one table | any OS |
 | `sample_capture.json` | A **real, sanitized** capture (47 processes throttled on a real game session) to try immediately | — |
 
 ## Try it in 10 seconds (no game needed)

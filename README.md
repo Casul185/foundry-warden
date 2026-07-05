@@ -175,7 +175,7 @@ The `export-showcase` command **sends nothing** — and Foundry-Warden has no te
 python run_warden.py export-showcase
 ```
 
-That reads your latest session and prints a **pre-sanitized** block (throttle counts, generalized machine class, process names, honest notes) — with hostnames, usernames, home paths, IPs, and MACs stripped. It shows you **exactly** what would be shared and writes it to `showcase_export.md`. Nothing leaves your machine. Review it, and *if you choose*, paste it into the pinned [GitHub Discussion](https://github.com/casul185/foundry-warden/discussions). Add `--redact-game` to hide the title.
+That reads your latest session and prints a **pre-sanitized** block (throttle counts, generalized machine class, process names, honest notes) — with hostnames, usernames, home paths, IPs, and MACs stripped. It shows you **exactly** what would be shared and writes it to `showcase_export.md`. Nothing leaves your machine. Review it, and *if you choose*, paste it into the pinned [**Share your throttle results** Discussion](https://github.com/casul185/foundry-warden/discussions) (or open a [showcase issue](https://github.com/casul185/foundry-warden/issues/new?template=showcase-result.yml)). Add `--redact-game` to hide the title.
 
 That the program sends nothing, and sharing is entirely opt-in and reviewable, is by design.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.5 — 2026-07-05
+
+Community showcase infrastructure (still zero-network).
+
+* `.github/ISSUE_TEMPLATE/showcase-result.yml` + `.github/SHARE_YOUR_RESULTS.md` (pinned-Discussion body) so `export-showcase` output has a home; README Contribute links both.
+* `examples/showcase/aggregate_community.py`: pulls **public** showcase submissions (issues labeled `showcase`, no auth, stdlib) into one aggregate table. Reads only what users voluntarily posted; sends nothing.
+
 ## v0.1.4 — 2026-07-05
 
 Self-update (stdlib, public GitHub, no auth).
