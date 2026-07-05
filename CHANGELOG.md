@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.2 — 2026-07-05
+
+Adoptability: logging + docs.
+
+* Throttle-engage now logs the **process names** at INFO (soft/hard tiers + protected count), not just counts — the line users screenshot and share.
+* `run --verbose` (=DEBUG) / `--log-level LEVEL` CLI flag overrides the config log level.
+* README: **Viewing logs** (path, rotation, how to read an engage line, counters, verbosity) and **Why it needs admin** (elevation explained).
+
 ## v0.1.1 — 2026-07-05
 
 Showcase + reproducibility.

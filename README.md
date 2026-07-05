@@ -129,6 +129,30 @@ python run_warden.py start               # start detached now
 | `benchmark.enabled` | `true` | Per-session baseline/engaged/restored measurement |
 | `benchmark.*_window_sec` / `*_settle_sec` | 2–4 s | Sampling windows (shorter = noisier; see `metrics.py`) |
 
+## Viewing logs
+
+The daemon writes to **`logs/daemon.log`** next to `run_warden.py` (created automatically, rotated at 2 MB × 5 files, so it can't grow unbounded). `python run_warden.py status` prints the tail.
+
+A throttle-engage looks like this (INFO — this is the line worth screenshotting):
+
+```
+2026-07-05T01:00:14 INFO    warden: GAME DETECTED app_id=1938090 game=Call of Duty
+2026-07-05T01:00:14 INFO    warden: throttle engaged: 47 soft, 0 hard
+2026-07-05T01:00:14 INFO    warden:   soft (Idle+EcoQoS): runtimebroker.exe, searchapp.exe, syncthing.exe, taskhostw.exe, ...
+2026-07-05T01:24:30 INFO    warden: throttle restored: 47 processes back to normal
+```
+
+* **`throttle engaged: N soft, M hard`** — N processes dropped to Idle priority + EcoQoS (reversible), M fully suspended (only if you opted into the hard tier).
+* **`soft (…)` / `hard (…)`** — the actual process names touched, so you can see exactly what happened.
+* **`protected (untouched): K`** — how many candidates the safety layers spared.
+* **`throttle restored`** — every process put back, on quit.
+
+Raise detail with **`python run_warden.py run --verbose`** (= DEBUG; shows per-process decisions, protect-set expansion, and why anything was skipped) or `--log-level DEBUG|INFO|WARNING`. The persistent default is the `log_level` field in `config.json`.
+
+## Why it needs admin (elevation)
+
+Changing **another** process's scheduling priority or EcoQoS, and suspending/resuming processes, requires a token privilege Windows only grants an elevated process — especially for processes owned by other users or running at higher integrity. The `install` command creates the logon Scheduled Task with `/RL HIGHEST` so the daemon starts elevated at login without a UAC prompt each time. Running un-elevated still works for same-integrity processes but will silently skip the ones it can't touch (you'll see them logged as errors at DEBUG).
+
 ## Limitations (honest)
 
 * **Steam only.** Detection is built on Steam's registry state; Epic/GOG/Xbox launches are invisible to it.

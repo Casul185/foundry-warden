@@ -4,8 +4,10 @@ Subcommands:
   install / uninstall   create or remove the logon Scheduled Task
   start / stop / restart control the running daemon (detached, in user session)
   status                show daemon + task + throttle state and recent log
-  run [--dry-run]       run in the foreground with console logging (Ctrl-C stops);
-                        --dry-run logs intended throttle actions, takes none
+  run [--dry-run] [--verbose|--log-level LEVEL]
+                        run in the foreground with console logging (Ctrl-C stops);
+                        --dry-run logs intended throttle actions, takes none;
+                        --verbose (=DEBUG) or --log-level DEBUG|INFO|WARNING raises detail
   _run                  run detached/background (used by the task and `start`)
   once                  one detection poll, printed as JSON (diagnostic)
   payload               print a sample telemetry payload (the receiving-side contract)
@@ -149,10 +151,24 @@ def cmd_status(_args) -> int:
     return 0
 
 
+def _parse_log_level(args) -> str | None:
+    """--verbose => DEBUG; --log-level LEVEL or --log-level=LEVEL => LEVEL."""
+    args = args or []
+    if "--verbose" in args or "-v" in args:
+        return "DEBUG"
+    for i, a in enumerate(args):
+        if a == "--log-level" and i + 1 < len(args):
+            return args[i + 1].upper()
+        if a.startswith("--log-level="):
+            return a.split("=", 1)[1].upper()
+    return None
+
+
 def cmd_run(_args) -> int:
     dry_run = "--dry-run" in (_args or [])
+    log_level = _parse_log_level(_args)
     from .daemon import Daemon
-    Daemon(console=True, dry_run=dry_run).run()
+    Daemon(console=True, dry_run=dry_run, log_level=log_level).run()
     return 0
 
 

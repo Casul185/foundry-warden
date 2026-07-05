@@ -27,10 +27,11 @@ from .models import GameState
 
 class Daemon:
     def __init__(self, config: dict | None = None, console: bool = False,
-                 dry_run: bool = False):
+                 dry_run: bool = False, log_level: str | None = None):
         self.config = config or load_config()
         self.dry_run = dry_run
-        _lvl = str(self.config.get("log_level", "INFO")).upper()
+        # CLI --log-level/--verbose overrides the config's log_level.
+        _lvl = str(log_level or self.config.get("log_level", "INFO")).upper()
         self.log = get_logger(
             console=console,
             level=getattr(logging, _lvl, logging.INFO),
@@ -193,6 +194,19 @@ class Daemon:
             "throttle engaged: %d soft, %d hard",
             len(result.soft), len(result.hard),
         )
+        # Names at INFO — this is the line users screenshot and share.
+        if result.soft:
+            self.log.info(
+                "  soft (Idle+EcoQoS): %s",
+                ", ".join(sorted(getattr(p, "name", "?") for p in result.soft)),
+            )
+        if result.hard:
+            self.log.info(
+                "  hard (suspended): %s",
+                ", ".join(sorted(getattr(p, "name", "?") for p in result.hard)),
+            )
+        if getattr(result, "skipped_protected", None):
+            self.log.info("  protected (untouched): %d", len(result.skipped_protected))
         self.telemetry.send_state_change("gaming", state, result)
 
         # ENGAGED capture (settle + window) runs in the background so the loop
