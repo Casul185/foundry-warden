@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.3 — 2026-07-05
+
+Contribute-your-results (zero network).
+
+* New `export-showcase [--redact-game]` command: reads your latest benchmark and prints a **pre-sanitized**, copy-pasteable summary (throttle counts, generalized machine class, process names, honest notes) with hostnames/usernames/home-paths/IPs/MACs stripped (allowlist build + second-pass scrub). Writes `showcase_export.md`. **Sends nothing** — sharing is 100%% manual and reviewable.
+* README **Contribute your results** section stating the no-telemetry design explicitly.
+
 ## v0.1.2 — 2026-07-05
 
 Adoptability: logging + docs.

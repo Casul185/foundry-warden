@@ -12,6 +12,8 @@ Subcommands:
   once                  one detection poll, printed as JSON (diagnostic)
   payload               print a sample telemetry payload (the receiving-side contract)
   version               print version
+  export-showcase [--redact-game]
+                        print a PRE-SANITIZED session summary to paste into Discussions (sends nothing)
 """
 
 from __future__ import annotations
@@ -214,11 +216,31 @@ def cmd_version(_args) -> int:
     return 0
 
 
+def cmd_export_showcase(_args) -> int:
+    """Build a pre-sanitized, copy-pasteable summary of the latest session. Sends NOTHING."""
+    from .config import BENCHMARKS_DIR, PROJECT_ROOT
+    from . import showcase_export
+    redact = "--redact-game" in (_args or [])
+    out_path = PROJECT_ROOT / "showcase_export.md"
+    block, path = showcase_export.export_showcase(BENCHMARKS_DIR, out_path, redact_game=redact)
+    if block is None:
+        print("No benchmark captures found yet — play a game with the daemon running first.")
+        return 1
+    print(block)
+    print("\n" + "-" * 60)
+    print("^ This is EXACTLY what would be shared — nothing was sent anywhere.")
+    print(f"Saved to: {path}")
+    print("Review it, then (only if you want) paste it into the pinned GitHub Discussion.")
+    print("Add --redact-game to hide the title.")
+    return 0
+
+
 COMMANDS = {
     "install": cmd_install, "uninstall": cmd_uninstall,
     "start": cmd_start, "stop": cmd_stop, "restart": cmd_restart,
     "status": cmd_status, "run": cmd_run, "_run": cmd__run,
     "once": cmd_once, "payload": cmd_payload, "version": cmd_version,
+    "export-showcase": cmd_export_showcase,
 }
 
 

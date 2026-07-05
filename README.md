@@ -167,6 +167,18 @@ Changing **another** process's scheduling priority or EcoQoS, and suspending/res
 * Windows 10/11, Steam.
 * Python ≥ 3.7 (syntactic minimum, verified with `vermin`; developed and run on 3.11+). No packages — stdlib only.
 
+## Contribute your results
+
+Foundry-Warden **never sends anything anywhere** — no telemetry, no phone-home. If you want to help build a public picture of what it does across different machines, sharing is **100% your manual choice**:
+
+```
+python run_warden.py export-showcase
+```
+
+That reads your latest session and prints a **pre-sanitized** block (throttle counts, generalized machine class, process names, honest notes) — with hostnames, usernames, home paths, IPs, and MACs stripped. It shows you **exactly** what would be shared and writes it to `showcase_export.md`. Nothing leaves your machine. Review it, and *if you choose*, paste it into the pinned [GitHub Discussion](https://github.com/casul185/foundry-warden/discussions). Add `--redact-game` to hide the title.
+
+That the program sends nothing, and sharing is entirely opt-in and reviewable, is by design.
+
 ## Support
 
 If this project is useful to you, you can support it at [ko-fi.com/casul185](https://ko-fi.com/casul185).
