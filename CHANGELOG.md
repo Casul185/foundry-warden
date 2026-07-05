@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.6 — 2026-07-05
+
+Harden the sanitizer (durable no-leak guarantee).
+
+* `tests/test_showcase_export.py`: a regression corpus (10 secret types × 6 markdown wrappers) — **caught two real leaks** the ad-hoc check missed: **IPv6 addresses** and **UNC paths** (`\host\share`). Both now scrubbed. Wired into CI so the no-leak claim can't regress.
+* export-showcase sanitizer: added IPv6 (full + compressed) and UNC-path scrubbing.
+* Verified log rotation actually rotates (RotatingFileHandler 2 MB × 5) and the updater degrades cleanly offline (message, not traceback).
+
 ## v0.1.5 — 2026-07-05
 
 Community showcase infrastructure (still zero-network).

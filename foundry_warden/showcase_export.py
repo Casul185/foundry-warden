@@ -17,9 +17,16 @@ import re
 
 # Second-pass scrubbers — applied to the finished block, belt-and-suspenders.
 # No \b anchors — they break against surrounding markdown (underscore is a word char).
+# MAC runs before IPv6 (a MAC is a subset of the IPv6 colon-hex shape).
 _SCRUB = [
     (re.compile(r"(?:\d{1,3}\.){3}\d{1,3}"), "[ip]"),
     (re.compile(r"(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}"), "[mac]"),
+    # IPv6: full (2+ groups) and compressed (::) forms.
+    (re.compile(r"(?:[0-9a-fA-F]{1,4}:){2,7}[0-9a-fA-F]{1,4}", re.I), "[ipv6]"),
+    (re.compile(r"(?:[0-9a-fA-F]{1,4}:)+:[0-9a-fA-F:]*", re.I), "[ipv6]"),
+    (re.compile(r"::[0-9a-fA-F][0-9a-fA-F:]*", re.I), "[ipv6]"),
+    # UNC path \\host\share — leaks the host.
+    (re.compile(r"\\\\[\w.$-]+(?:\\[\w.$-]*)*"), "[unc-path]"),
     (re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+", re.I), r"C:\\Users\\[user]"),
     (re.compile(r"/home/[^/\s_]+"), "/home/[user]"),
     (re.compile(r"\w+\.local|\w+\.lan", re.I), "[host]"),
