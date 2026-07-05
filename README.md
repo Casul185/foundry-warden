@@ -169,7 +169,7 @@ Changing **another** process's scheduling priority or EcoQoS, and suspending/res
 
 ## Contribute your results
 
-Foundry-Warden **never sends anything anywhere** — no telemetry, no phone-home. If you want to help build a public picture of what it does across different machines, sharing is **100% your manual choice**:
+The `export-showcase` command **sends nothing** — and Foundry-Warden has no telemetry running by default (the only outbound feature is opt-in, disabled unless you configure it yourself). If you want to help build a public picture of what it does across different machines, sharing is **100% your manual choice**:
 
 ```
 python run_warden.py export-showcase
