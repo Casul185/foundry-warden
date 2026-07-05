@@ -1,5 +1,7 @@
 # Foundry-Warden
 
+[![CI](https://github.com/casul185/foundry-warden/actions/workflows/ci.yml/badge.svg)](https://github.com/casul185/foundry-warden/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/casul185/foundry-warden)](https://github.com/casul185/foundry-warden/releases) ![License](https://img.shields.io/github/license/casul185/foundry-warden)
+
 A Windows game-mode daemon in pure-stdlib Python. It watches Steam, and the moment a game launches it throttles your background apps — browser, chat, sync clients — then restores every one of them, exactly as they were, when you quit. It also benchmarks itself each session and tells you honestly whether it helped.
 
 Zero pip dependencies. One config file. ~2,900 lines of `ctypes` + `winreg` + standard library.
@@ -190,6 +192,10 @@ python run_warden.py update --yes      # installs it: backs up first, PRESERVES 
 ```
 
 It never auto-updates silently — `check-update` is read-only and `update` only installs with `--yes`. The current install is backed up to `../foundry-warden.backup-<version>` and restored automatically if anything fails; your `config.json` and `logs/` are never touched. **Honest limit:** updates come from public GitHub over TLS with **no code signing yet** — you are trusting github.com + the repo owner; review the release diff if that matters to you.
+
+## Related
+
+Part of a small Windows-gaming toolkit: [**frameseer**](https://github.com/casul185/frameseer) (settings advisor + frametime measurement) and [**amd-vram-detection**](https://github.com/casul185/amd-vram-detection) (true VRAM size).
 
 ## Support
 
