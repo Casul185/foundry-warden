@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.1 — 2026-07-05
+
+Showcase + reproducibility.
+
+* Real-session throttle showcase in the README (three real games; 47/54/39 background processes throttled), with honest attribution — measured CPU/working-set deltas are near zero for idle background apps and the docs say why (the win is preventive).
+* `examples/showcase/`: portable `generate_load.py` (synthetic busy/memory load), `run_showcase.py` (end-to-end A/B harness driving the real daemon), `analyze_capture.py` (renders a benchmark JSON as a plain A/B table), and `sample_capture.json` — a real, sanitized 47-process capture to try immediately.
+
 ## v0.1.0 — 2026-07-04
 
 Initial public release.

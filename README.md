@@ -30,6 +30,26 @@ Foundry-Warden closes that gap with three ideas:
 2. **Throttling must be reversible and safe by construction** — every mutation is recorded and persisted before it matters, and a multi-layer protect set makes it impossible to suspend the OS out from under yourself.
 3. **Claims must be measured.** Every session produces a baseline/engaged/restored benchmark, and only the per-throttled-process deltas are credited to the daemon — never system-wide numbers the game itself moved.
 
+## Showcase — real sessions
+
+Three real game sessions on a 4-core/8-thread machine (32 GB RAM, GTX-1650-class GPU), captured by the daemon's own baseline/engaged/restored benchmark:
+
+| Game | Background processes throttled | Tier |
+|---|---|---|
+| Call of Duty: Modern Warfare II | 47 | soft (Idle + EcoQoS) |
+| Cyberpunk 2077 | 54 | soft |
+| Cruelty Squad | 39 | soft |
+
+The instant each game launched, Warden dropped dozens of background processes — Windows Search (`searchapp.exe`), a sync client (`syncthing.exe`), a swarm of `runtimebroker.exe` and `taskhostw.exe` — to idle/EcoQoS priority, then restored every one, exactly as it was, on quit.
+
+**Read this honestly:** in these captures the *measured* CPU-freed and working-set-freed are near zero, because those apps were idle at capture time — an idle process yields little when throttled. The value there is preventive: a throttled updater or indexer simply **cannot** wake up and spike mid-match. To see the mechanism's ceiling as a large, measurable delta, `examples/showcase/` throttles a *busy* synthetic load instead:
+
+```
+python examples/showcase/analyze_capture.py examples/showcase/sample_capture.json
+```
+
+That ships a real (sanitized) 47-process capture, plus `generate_load.py` + `run_showcase.py` to reproduce a full before/after A/B on your own hardware. See [`examples/showcase/`](examples/showcase/).
+
 ## ⚠️ Warning: process suspension is sharp
 
 The **HARD tier suspends processes outright** (`NtSuspendProcess`). A suspended process is frozen mid-instruction:
