@@ -1,0 +1,396 @@
+{
+  "node": "gaming-pc",
+  "game": "Example AAA Game",
+  "started": "2026-07-05T00:52:45.642103+00:00",
+  "ended": "2026-07-05T01:01:00.026172+00:00",
+  "throttled_count": 47,
+  "cpu_freed_pct": 0.01,
+  "ws_freed_mb": 333.6,
+  "system_cpu_baseline_pct": 44.04,
+  "system_cpu_engaged_pct": 50.22,
+  "mem_avail_delta_mb": -1961.6,
+  "per_proc": [
+    {
+      "name": "taskhostw.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 19.5,
+      "ws_after_mb": 19.4
+    },
+    {
+      "name": "syncthing.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 5.8,
+      "ws_after_mb": 5.8
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 32.8,
+      "ws_after_mb": 32.8
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 46.0,
+      "ws_after_mb": 46.1
+    },
+    {
+      "name": "searchapp.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 218.9,
+      "ws_after_mb": 218.9
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 34.1,
+      "ws_after_mb": 34.1
+    },
+    {
+      "name": "taskhostw.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.05,
+      "ws_before_mb": 18.3,
+      "ws_after_mb": 18.3
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 19.6,
+      "ws_after_mb": 19.6
+    },
+    {
+      "name": "syncthing.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 28.9,
+      "ws_after_mb": 27.0
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 20.4,
+      "ws_after_mb": 20.4
+    },
+    {
+      "name": "comppkgsrv.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 9.1,
+      "ws_after_mb": 9.1
+    },
+    {
+      "name": "taskhostw.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 19.6,
+      "ws_after_mb": 19.3
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 200.0,
+      "ws_after_mb": 199.7
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 8.1,
+      "ws_after_mb": 8.1
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 254.9,
+      "ws_after_mb": 254.6
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 43.3,
+      "ws_after_mb": 43.3
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 21.3,
+      "ws_after_mb": 21.3
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 107.5,
+      "ws_after_mb": 107.5
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 110.5,
+      "ws_after_mb": 110.5
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 19.5,
+      "ws_after_mb": 19.5
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 48.2,
+      "ws_after_mb": 48.2
+    },
+    {
+      "name": "vpnclient.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 81.2,
+      "ws_after_mb": 81.2
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 282.9,
+      "ws_after_mb": 282.9
+    },
+    {
+      "name": "powershell.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 77.8,
+      "ws_after_mb": 77.8
+    },
+    {
+      "name": "assistant.exe",
+      "tier": "soft",
+      "cpu_before": 1.1,
+      "cpu_after": 0.92,
+      "ws_before_mb": 494.6,
+      "ws_after_mb": 499.2
+    },
+    {
+      "name": "brave.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 32.7,
+      "ws_after_mb": 32.7
+    },
+    {
+      "name": "windowspackagemanagerserver.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.05,
+      "ws_before_mb": 43.4,
+      "ws_after_mb": 34.5
+    },
+    {
+      "name": "olk.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 14.9,
+      "ws_after_mb": 14.9
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 79.9,
+      "ws_after_mb": 80.0
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 10.9,
+      "ws_after_mb": 10.9
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 10.3,
+      "ws_after_mb": 10.3
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 26.7,
+      "ws_after_mb": 26.8
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 6.6,
+      "ws_after_mb": 6.6
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 260.7,
+      "ws_after_mb": 262.3
+    },
+    {
+      "name": "gethelp.exe",
+      "tier": "soft",
+      "cpu_before": 0.39,
+      "cpu_after": 0.34,
+      "ws_before_mb": 225.6,
+      "ws_after_mb": 225.6
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 15.7,
+      "ws_after_mb": 15.7
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 113.0,
+      "ws_after_mb": 113.0
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 10.3,
+      "ws_after_mb": 10.3
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 72.6,
+      "ws_after_mb": 72.6
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 38.1,
+      "ws_after_mb": 38.1
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 19.8,
+      "ws_after_mb": 19.8
+    },
+    {
+      "name": "msedgewebview2.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 102.2,
+      "ws_after_mb": 102.2
+    },
+    {
+      "name": "cmd.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 14.1,
+      "ws_after_mb": 14.1
+    },
+    {
+      "name": "winstore.app.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.07,
+      "ws_before_mb": 274.6,
+      "ws_after_mb": 0.0
+    },
+    {
+      "name": "runtimebroker.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.05,
+      "ws_before_mb": 38.0,
+      "ws_after_mb": 32.3
+    },
+    {
+      "name": "storedesktopextension.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 25.2,
+      "ws_after_mb": 0.0
+    },
+    {
+      "name": "smartscreen.exe",
+      "tier": "soft",
+      "cpu_before": 0.0,
+      "cpu_after": 0.0,
+      "ws_before_mb": 23.0,
+      "ws_after_mb": 0.0
+    }
+  ],
+  "notes": [
+    "System-wide CPU and memory figures include the game's own load (the game is launching/running during all phases) and are NOT attributed to throttling; only per-throttled-process deltas are.",
+    "Suspended (HARD) and idled+EcoQoS (SOFT) processes do not necessarily release working-set memory, so a small or zero ws_freed is expected and is not a failure.",
+    "Sampler used a 1.0-second interval across each phase window; CPU% is the share of total machine capacity across 8 cores (os.cpu_count())."
+  ],
+  "game_name": "ExampleGame.exe"
+}
