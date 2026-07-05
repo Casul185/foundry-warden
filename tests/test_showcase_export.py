@@ -10,16 +10,16 @@ import showcase_export as sx  # noqa: E402
 
 # Each entry is planted into a capture's echoed free-text (notes/game) and must NOT survive.
 SECRETS = [
-    "192.168.1.9",                       # IPv4
-    "10.0.0.1",                          # IPv4 private
+    "192.0.2.1",                       # IPv4
+    "198.51.100.7",                          # IPv4 private
     "2001:db8::1",                       # IPv6
     "fe80::1ff:fe23:4567:890a",          # IPv6 link-local
     "00:1a:2b:3c:4d:5e",                 # MAC
-    r"C:\Users\gabe",                    # Windows home
-    "/home/bakes",                       # unix home
+    r"C:\Users\alice",                    # Windows home
+    "/home/alice",                       # unix home
     r"\\fileserver\share",               # UNC path (host!)
-    "frankey.lan",                       # .lan host
-    "behemoth.local",                    # .local host
+    "myhost.lan",                       # .lan host
+    "device.local",                    # .local host
 ]
 # Contexts that previously broke the regex (markdown wrappers).
 WRAPPERS = ["{}", "_{}_", "**{}**", "`{}`", "text {} text", "({})"]
@@ -27,7 +27,7 @@ WRAPPERS = ["{}", "_{}_", "**{}**", "`{}`", "text {} text", "({})"]
 
 def _build(secret_in_note: str, secret_in_game: str) -> str:
     bench = {
-        "node": "Behemoth", "game_name": secret_in_game, "cpu_count": 8,
+        "node": "SECRET-NODE", "game_name": secret_in_game, "cpu_count": 8,
         "throttled_count": 3, "cpu_freed_pct": 1.0, "ws_freed_mb": 5.0,
         "system_cpu_baseline": 40.0, "system_cpu_engaged": 50.0,
         "per_proc": [{"name": "brave.exe", "tier": "soft"}],
@@ -45,8 +45,8 @@ def main() -> int:
             if secret in out:
                 failures.append((secret, wrap))
     # node is never echoed at all
-    if "Behemoth" in _build("clean note", "clean game"):
-        failures.append(("Behemoth (node)", "field-allowlist"))
+    if "SECRET-NODE" in _build("clean note", "clean game"):
+        failures.append(("SECRET-NODE (node)", "field-allowlist"))
     if failures:
         print("SANITIZER LEAKS:")
         for s, w in failures:
